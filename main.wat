@@ -1,0 +1,16 @@
+(module
+    (func $areaCircle (param $r f64) (result f64)
+        (f64.mul (f64.mul
+            (get_local $r)
+            (get_local $r))
+            (f64.const 3.14)))
+    (func $helloWorld (result i32)
+        (i32.mul (i32.const 4) (i32.const 7)))
+    (func $double (param $x i32) (result i32)
+        (i32.mul (i32.const 2) (get_local $x)))
+    (func $quadruple (param $x i32) (result i32)
+        (call $double (call $double (get_local $x))))
+    (export "areaOfCircle" (func $areaCircle))
+    (export "helloWorld" (func $helloWorld))
+    (export "double" (func $double))
+    (export "quadruple" (func $quadruple)))
